@@ -1,7 +1,7 @@
-#if defined _redirect_api_included_
+#if defined _redirect_core_included_
   #endinput
 #endif
-#define _redirect_api_included_
+#define _redirect_core_included_
 
 /**
  * Sets the site domain for redirect by IP.
@@ -66,10 +66,10 @@ stock int GetIP32FromIPv4(const char sIPv4[4][4])
 
 
 
-public SharedPlugin __pl_redirect_api = 
+public SharedPlugin __pl_redirect_core = 
 {
-	name = "redirect_api",
-	file = "redirect_api.smx",
+	name = "redirect_core",
+	file = "redirect_core.smx",
 
 	#if defined REQUIRE_PLUGIN
 		required = 1
@@ -79,7 +79,7 @@ public SharedPlugin __pl_redirect_api =
 };
 
 #if !defined REQUIRE_PLUGIN
-public void __pl_redirect_api_SetNTVOptional()
+public void __pl_redirect_core_SetNTVOptional()
 {
 	MarkNativeAsOptional("SetRedirectDomainForIP");
 	MarkNativeAsOptional("GetPlayerRedirectServer");
