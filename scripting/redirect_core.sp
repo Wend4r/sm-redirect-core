@@ -149,7 +149,7 @@ void QuerySession(QueryCookie iCookie, int iClient, ConVarQueryResult iResult, c
 
 	if(iUser)
 	{
-		PrintToChat(iUser, "You session: %s", iCookie, iClient, iResult, sCvarValue);
+		PrintToChat(iUser, "You session: %s", sCvarValue);
 	}
 }
 
