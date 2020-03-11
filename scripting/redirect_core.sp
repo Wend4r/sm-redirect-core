@@ -8,13 +8,23 @@
 #pragma newdecls required
 #pragma tabsize 4
 
-#define SPPP_COMPILER 1
+#define SPPP_COMPILER 0
 
 #if !SPPP_COMPILER
 	#define decl static
 #endif
 
 ArrayList		g_hRedirectPlayers, g_hDomains, g_hDomainsIP;
+
+// weapon_blocker.sp
+// SourcePawn Compiler 1.10 Ex
+public Plugin myinfo =
+{
+	name = "[Redirect] Core",
+	author = "Wend4r",
+	version = "1.0.0 Alpha",
+	url = "Discord: Wend4r#0001 | https://discord.gg/9gGHgBP"
+};
 
 public APLRes AskPluginLoad2(Handle hMySelf, bool bLate, char[] sError, int iErrorSize)
 {
