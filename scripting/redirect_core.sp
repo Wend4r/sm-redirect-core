@@ -16,7 +16,7 @@
 
 ArrayList		g_hRedirectPlayers, g_hDomains, g_hDomainsIP;
 
-// weapon_blocker.sp
+// redirect_core.sp
 // SourcePawn Compiler 1.10 Ex
 public Plugin myinfo =
 {
