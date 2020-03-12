@@ -39,7 +39,7 @@ public APLRes AskPluginLoad2(Handle hMySelf, bool bLate, char[] sError, int iErr
 	CreateNative("GetPlayerRedirectServer", Native_GetPlayerRedirectServer);
 	CreateNative("RedirectClientOnServer", Native_RedirectClientOnServer);
 
-	RegPluginLibrary("redirect_api");
+	RegPluginLibrary("redirect_core");
 
 	HookEvent("player_disconnect", OnPlayerDisconnect, EventHookMode_Pre); // Hello, insecure SMAC Ultra.
 
