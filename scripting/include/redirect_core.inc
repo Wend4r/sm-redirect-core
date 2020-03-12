@@ -46,10 +46,10 @@ native void RedirectClientOnServer(int iClient, int iIP, int iPort);
  */
 stock void GetIPv4FromIP32(int iIP, char sIPv4[4][4])
 {
-	IntToString(iIP32 >>> 24, sIPv4[0], sizeof(sIPv4[]));
-	IntToString(iIP32 >> 16 & 255, sIPv4[1], sizeof(sIPv4[]));
-	IntToString(iIP32 >> 8 & 255, sIPv4[2], sizeof(sIPv4[]));
-	IntToString(iIP32 & 255, sIPv4[3], sizeof(sIPv4[]));
+	IntToString(iIP >>> 24, sIPv4[0], sizeof(sIPv4[]));
+	IntToString(iIP >> 16 & 255, sIPv4[1], sizeof(sIPv4[]));
+	IntToString(iIP >> 8 & 255, sIPv4[2], sizeof(sIPv4[]));
+	IntToString(iIP & 255, sIPv4[3], sizeof(sIPv4[]));
 }
 
 /**
