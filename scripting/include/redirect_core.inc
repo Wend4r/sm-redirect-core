@@ -14,6 +14,26 @@
 native void SetRedirectDomainForIP(const char[] sDomain, int iIP);
 
 /**
+ * Gets the site domain for redirect by IP.
+ *
+ * @param sDomain           Domain address.
+ *
+ * @return IP32 address, or 0 it is not registered for a domain.
+ */
+native int GetIPFromRedirectDomain(const char[] sDomain);
+
+/**
+ * Gets the site domain for redirect by IP.
+ *
+ * @param iIP32             IP32 address.
+ * @param sDomain           Where it will be recorded domain address. Max char size 256.
+ * @param iSize             Buffer size of the domain.
+ *
+ * @return Is the domain setted using SetRedirectDomainForIP().
+ */
+native bool GetRedirectDomainFromIP(int iIP, char[] sDomain, int iSize);
+
+/**
  * Gets the server from the player to which it reconnects.
  * Use in OnClientDisconnect() or CBaseServer::ConnectClient (Pre).
  *
@@ -35,6 +55,18 @@ native bool GetPlayerRedirectServer(int iClient, int &iIP = 0, int &iPort = 0);
  * @noreturn
  */
 native void RedirectClientOnServer(int iClient, int iIP, int iPort);
+
+/**
+ * Forced redirects the player to other server.
+ * @note This is the same as RedirectClientOnServer(), except
+ *       for including the full server address.
+ *
+ * @param iClient           Client index.
+ * @param sServerAddress    Server address of the server where the player will be redirected.
+ *
+ * @return                  False if it is a domain and no IP is registered for it, else true.
+ */
+native bool RedirectClientOnServerEx(int iClient, const char[] sServerAddress);
 
 /**
  * Converts IP32 to IPv4.
@@ -82,7 +114,10 @@ public SharedPlugin __pl_redirect_core =
 public void __pl_redirect_core_SetNTVOptional()
 {
 	MarkNativeAsOptional("SetRedirectDomainForIP");
+	MarkNativeAsOptional("GetIPFromRedirectDomain");
+	MarkNativeAsOptional("GetRedirectDomainFromIP");
 	MarkNativeAsOptional("GetPlayerRedirectServer");
 	MarkNativeAsOptional("RedirectClientOnServer");
+	MarkNativeAsOptional("RedirectClientOnServerEx");
 }
 #endif
