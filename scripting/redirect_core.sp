@@ -50,6 +50,8 @@ public APLRes AskPluginLoad2(Handle hMySelf, bool bLate, char[] sError, int iErr
 
 public void OnPluginStart()
 {
+	LoadTranslations("common.phrases");
+
 	RegAdminCmd("sm_redirect", OnRedirect, ADMFLAG_ROOT, "Forced redirect the target to server");
 	RegAdminCmd("sm_get_session", OnGetSesssion, ADMFLAG_ROOT, "Test command for getting a player session");
 
